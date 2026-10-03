@@ -1,0 +1,87 @@
+# =============================================================================
+# Moodle Quiz Solver — example configuration
+# Copy to config.yaml and fill in your credentials.
+# NEVER commit config.yaml (it is gitignored).
+# =============================================================================
+
+agents:
+  # API keys — one key per provider, shared by all models from that provider
+  google_api_key: YOUR_GOOGLE_API_KEY
+  groq_api_key: YOUR_GROQ_API_KEY
+  cerebras_api_key: YOUR_CEREBRAS_API_KEY
+  deepseek_api_key: YOUR_DEEPSEEK_API_KEY
+  openrouter_api_key: YOUR_OPENROUTER_API_KEY
+  github_api_key: YOUR_GITHUB_PAT
+
+  calls_per_agent: 1
+  timeout_seconds: 45.0
+  temperature_low: 0.2
+  temperature_high: 0.7
+
+  # Built-in models (toggle true/false)
+  enabled:
+    cerebras_llama31_8b: true
+    cerebras_qwen3_235b: true
+    groq_qwen3_32b: true
+    groq_llama33_70b: false
+    groq_llama4_scout: false
+    gemini_flash_25: false
+    gemini_flash_20: false
+    github_gpt4o: false
+    github_o4mini: false
+    github_deepseek_r1: false
+    # Legacy OpenRouter toggles (prefer openrouter_models below)
+    openrouter_deepseek_r1: false
+    openrouter_gemini25pro: false
+    openrouter_llama4_mav: false
+
+  # DeepSeek models (https://platform.deepseek.com/)
+  deepseek_models:
+    - model: deepseek-chat
+      enabled: false
+    # - model: deepseek-reasoner
+    #   enabled: false
+
+  # OpenRouter models (https://openrouter.ai/models)
+  openrouter_models:
+    - model: deepseek/deepseek-r1:free
+      enabled: false
+    - model: meta-llama/llama-4-maverick:free
+      enabled: false
+
+moodle:
+  url: https://your-moodle.example
+  username: YOUR_MOODLE_USERNAME
+  password: YOUR_MOODLE_PASSWORD
+  preferred_mode: auto  # auto | api | scraper
+
+monitor:
+  poll_seconds: 60
+  poll_jitter_seconds: 10
+  exclude_quiz_ids: []
+  state_file: monitor_state.json
+
+solver:
+  auto_finish: false       # keep attempt open; submit manually in Moodle
+  question_delay: 0
+  defer_retries: 1
+  save_log: true
+  log_file: quiz_log.json
+  show_reasoning: false
+  logs_dir: logs
+
+remote:
+  runs_dir: remote_runs
+  allowed_telegram_user_ids: []
+  allowed_discord_user_ids: []
+  telegram_bot_token: YOUR_TELEGRAM_BOT_TOKEN
+  discord_bot_token: YOUR_DISCORD_BOT_TOKEN
+
+chat_bot:
+  conversation_id: 0
+  poll_seconds: 10
+  model: deepseek-chat
+  debug: false
+  auto_start_with_remote_bots: false
+  # reply_rules: |
+  #   Give ONLY the final answer. No greetings or explanations.

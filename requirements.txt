@@ -1,0 +1,36 @@
+# Moodle
+httpx>=0.27.0
+beautifulsoup4>=4.12.0
+playwright>=1.44.0
+
+# AI Agents
+google-genai>=1.0.0
+groq>=0.9.0
+openai>=1.35.0  # Used for Cerebras (OpenAI-compatible endpoint)
+
+# CLI & UI
+typer>=0.12.0
+rich>=13.7.0
+
+# Local Web GUI / Desktop
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+pywebview>=5.0.0
+
+# Packaging (optional)
+# pyinstaller>=6.0.0
+
+
+# Config & data
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+pyyaml>=6.0.1
+
+# Utilities
+python-dotenv>=1.0.0
+aiohttp>=3.9.0
+
+# Remote control (optional)
+python-telegram-bot>=21.0.0
+discord.py>=2.4.0

@@ -1,0 +1,37 @@
+# Secrets & local config (NEVER commit)
+config.yaml
+**/config.yaml
+config.private.yaml
+.env
+.env.*
+
+# Built desktop app (large binaries + may contain local config)
+Release/
+build/
+dist/
+
+# Runtime artifacts
+monitor_state.json
+quiz_log.json
+remote_runs/
+logs/
+*.log
+
+# Packaging leftovers
+*.spec.bak
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

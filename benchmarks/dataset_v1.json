@@ -1,0 +1,414 @@
+{
+  "version": "v1",
+  "description": "Deterministic IT/data-comms/electronics benchmark. Each item expects a JSON response: {\"answer\": ..., \"confidence\": 0..1, \"reasoning\": \"...\"}.",
+  "items": [
+    {
+      "id": "mcq_01",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In Ethernet (IEEE 802.3), what is the minimum frame size (excluding preamble/SFD) required to ensure collision detection in half-duplex CSMA/CD?\nA) 46 bytes\nB) 64 bytes\nC) 72 bytes\nD) 1518 bytes\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_01",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In TCP, the sequence number field counts bytes, not segments.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "short_01",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What does CRC stand for in data transmission?\nReturn JSON with answer as the exact acronym expansion.",
+      "expected": "Cyclic Redundancy Check"
+    },
+    {
+      "id": "mcq_02",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which layer of the OSI model is responsible for routing packets between networks?\nA) Data Link\nB) Network\nC) Transport\nD) Session\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "mcq_03",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: What is the default subnet mask for a Class C IPv4 network?\nA) 255.0.0.0\nB) 255.255.0.0\nC) 255.255.255.0\nD) 255.255.255.255\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "tf_02",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In I2C, devices use open-drain/open-collector outputs and require pull-up resistors on SDA and SCL.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_04",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which modulation changes the phase of a carrier to encode data?\nA) ASK\nB) FSK\nC) PSK\nD) PAM\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "short_02",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: In digital logic, what is the output of XOR when both inputs are the same?\nReturn JSON with answer as a single digit 0 or 1.",
+      "expected": "0"
+    },
+    {
+      "id": "mcq_05",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which register in x86 holds the return address after a CALL instruction?\nA) EIP/RIP\nB) ESP/RSP\nC) EFLAGS/RFLAGS\nD) CS\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "tf_03",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: DNS typically uses TCP for standard queries by default.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "False"
+    },
+    {
+      "id": "mcq_06",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In USB 2.0, what is the nominal signaling rate of High Speed?\nA) 12 Mb/s\nB) 480 Mb/s\nC) 5 Gb/s\nD) 10 Gb/s\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_03",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What is the name of the algorithm that maps variable-length input to a fixed-length output used in SHA-256?\nReturn JSON with answer as 2 words.",
+      "expected": "hash function"
+    },
+    {
+      "id": "mcq_07",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which address type in IPv4 is 224.0.0.0/4?\nA) Unicast\nB) Multicast\nC) Broadcast\nD) Loopback\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_04",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In a UART frame with 8N1, there is 1 start bit, 8 data bits, no parity bit, and 1 stop bit.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_08",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which logic family typically has the lowest static power consumption?\nA) TTL\nB) CMOS\nC) ECL\nD) NMOS\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_04",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: In IPv6, what is the length in bits of an address?\nReturn JSON with answer as a number.",
+      "expected": "128"
+    },
+    {
+      "id": "mcq_09",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which of these is a link-state routing protocol?\nA) RIP\nB) OSPF\nC) BGP\nD) EIGRP\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_05",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: A Schmitt trigger input provides hysteresis.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_10",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which memory is typically used for CPU caches?\nA) DRAM\nB) SRAM\nC) Flash\nD) EEPROM\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_05",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What does PWM stand for?\nReturn JSON with answer as the exact expansion.",
+      "expected": "Pulse Width Modulation"
+    },
+    {
+      "id": "mcq_11",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which is the correct order of the 3-way TCP handshake?\nA) SYN, SYN-ACK, ACK\nB) ACK, SYN, SYN-ACK\nC) SYN-ACK, SYN, ACK\nD) SYN, ACK, SYN-ACK\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "tf_06",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In RSA, the public key consists of (n, d).\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "False"
+    },
+    {
+      "id": "mcq_12",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In SPI, which signal selects the slave device?\nA) SCK\nB) MOSI\nC) MISO\nD) CS/SS\nReturn JSON with answer as the LETTER.",
+      "expected": "D"
+    },
+    {
+      "id": "short_06",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: In base-2, what is 1011 in decimal?\nReturn JSON with answer as a number.",
+      "expected": "11"
+    },
+    {
+      "id": "mcq_13",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which component stores energy in an electric field?\nA) Inductor\nB) Capacitor\nC) Resistor\nD) Diode\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_07",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: A diode in forward bias ideally behaves like an open circuit.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "False"
+    },
+    {
+      "id": "mcq_14",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which is the IEEE standard for Wi‑Fi?\nA) 802.3\nB) 802.11\nC) 802.15\nD) 802.1Q\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_07",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: Name the unit of electrical resistance.\nReturn JSON with answer as a single word (symbol allowed).",
+      "expected": "ohm"
+    },
+    {
+      "id": "mcq_15",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: What does DMA stand for?\nA) Direct Memory Access\nB) Dynamic Memory Allocation\nC) Device Management Architecture\nD) Data Movement Algorithm\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "tf_08",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In Gray code, consecutive values differ by exactly one bit.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_16",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which IPv4 address range is private (RFC1918)?\nA) 8.8.8.0/24\nB) 172.16.0.0/12\nC) 100.64.0.0/10\nD) 169.254.0.0/16\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_08",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What is the term for the phenomenon where an analog signal is sampled below the Nyquist rate causing frequency overlap?\nReturn JSON with a single word.",
+      "expected": "aliasing"
+    },
+    {
+      "id": "mcq_17",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In a microcontroller, what does ADC stand for?\nA) Analog-to-Digital Converter\nB) Automatic Delay Control\nC) Advanced Device Cache\nD) Audio Data Codec\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "tf_09",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: HTTPS is HTTP over TLS.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_18",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which is NOT a symmetric cipher?\nA) AES\nB) ChaCha20\nC) RSA\nD) Twofish\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "short_09",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: In networking, what does MTU stand for?\nReturn JSON with the exact expansion.",
+      "expected": "Maximum Transmission Unit"
+    },
+    {
+      "id": "mcq_19",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which HTTP status code means 'Too Many Requests'?\nA) 401\nB) 403\nC) 429\nD) 503\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "tf_10",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In Fourier analysis, any periodic signal can be represented as a sum of sinusoids.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_20",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which of the following is a non-volatile memory?\nA) SRAM\nB) DRAM\nC) Flash\nD) CPU cache\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "mcq_21",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In IEEE 754 single-precision float, how many bits are used for the exponent field?\nA) 7\nB) 8\nC) 10\nD) 11\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_11",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In a binary heap, the smallest element is always at the root in a min-heap.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_22",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which of these is the correct Nyquist sampling criterion for a band-limited signal with maximum frequency f_max?\nA) f_s >= f_max\nB) f_s > f_max\nC) f_s >= 2*f_max\nD) f_s >= 0.5*f_max\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "short_10",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What does UART stand for?\nReturn JSON with the exact expansion.",
+      "expected": "Universal Asynchronous Receiver-Transmitter"
+    },
+    {
+      "id": "mcq_23",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In BJT terminology, which configuration provides the highest current gain (beta) while often used as a buffer with ~1 voltage gain?\nA) Common Emitter\nB) Common Base\nC) Common Collector\nD) Differential Pair\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "tf_12",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In a PN junction diode, reverse bias widens the depletion region.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_24",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which bus is typically used for connecting high-speed peripherals like GPUs in PCs?\nA) PCI Express\nB) ISA\nC) I2C\nD) UART\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "short_11",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What is the port number for HTTPS by default?\nReturn JSON with a number.",
+      "expected": "443"
+    },
+    {
+      "id": "mcq_25",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which protocol is used to assign IP addresses dynamically in a typical LAN?\nA) DNS\nB) DHCP\nC) ARP\nD) ICMP\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_13",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: ARP resolves an IP address to a MAC address on a local network.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_26",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which logic gate output is 1 only when all inputs are 1?\nA) OR\nB) NAND\nC) AND\nD) XOR\nReturn JSON with answer as the LETTER.",
+      "expected": "C"
+    },
+    {
+      "id": "short_12",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What does EEPROM stand for?\nReturn JSON with the exact expansion.",
+      "expected": "Electrically Erasable Programmable Read-Only Memory"
+    },
+    {
+      "id": "mcq_27",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which microarchitecture concept allows executing multiple instructions per cycle by having multiple functional units?\nA) Pipelining\nB) Superscalar\nC) Microcode\nD) Virtual memory\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_14",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In a CRC, the generator polynomial is used with XOR operations (modulo-2 arithmetic).\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_28",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which of these is a common serial debug interface on embedded devices that uses TCK/TMS/TDI/TDO?\nA) UART\nB) JTAG\nC) CAN\nD) LIN\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "short_13",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What is the typical name of the network device that forwards frames based on MAC addresses?\nReturn JSON with a single word.",
+      "expected": "switch"
+    },
+    {
+      "id": "mcq_29",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: In semiconductor physics, an N-channel MOSFET primarily uses which carriers for conduction?\nA) Holes\nB) Electrons\nC) Protons\nD) Photons\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_15",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: The CAN bus uses differential signaling on CAN_H and CAN_L.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "mcq_30",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which instruction in many ISAs is used to synchronize memory operations across cores (memory barrier/fence)?\nA) NOP\nB) FENCE/MFENCE\nC) CALL\nD) RET\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "mcq_31",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which coding scheme guarantees no DC component and provides clock recovery by forcing a transition every bit?\nA) NRZ\nB) Manchester encoding\nC) PAM4\nD) AMI\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "tf_16",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In IPv4, fragmentation can be performed by routers (when DF is not set).\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    },
+    {
+      "id": "short_14",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: What does EMI stand for in electronics?\nReturn JSON with the exact expansion.",
+      "expected": "Electromagnetic Interference"
+    },
+    {
+      "id": "mcq_32",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which is the typical role of a PLL (phase-locked loop) in electronics?\nA) Increase resistor tolerance\nB) Generate/lock a stable output frequency to an input reference\nC) Convert AC to DC\nD) Measure capacitance\nReturn JSON with answer as the LETTER.",
+      "expected": "B"
+    },
+    {
+      "id": "mcq_33",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which Linux tool is commonly used to capture and inspect network packets?\nA) tcpdump\nB) top\nC) ls\nD) chmod\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "short_15",
+      "type": "short",
+      "prompt": "Short answer.\nQuestion: In RSA, what is the common name of the value n = p*q?\nReturn JSON with answer as a single word.",
+      "expected": "modulus"
+    },
+    {
+      "id": "cloze_01",
+      "type": "cloze",
+      "prompt": "Fill BOTH blanks.\nText: In a standard IPv4 header without options, the IHL field value is [BLANK 1], meaning the header length is [BLANK 2] bytes.\nReturn JSON where answer is an object: {\"1\": \"...\", \"2\": \"...\"}. Use numbers only.",
+      "expected": { "1": "5", "2": "20" }
+    },
+    {
+      "id": "matching_01",
+      "type": "matching",
+      "prompt": "Matching. Return JSON where answer is an object mapping LEFT -> RIGHT exactly.\nLEFT:\n1) HTTP\n2) SSH\n3) DNS\nRIGHT:\na) 80\nb) 22\nc) 53\nReturn mapping using the RIGHT letters (a/b/c) as values (not port numbers).",
+      "expected": { "HTTP": "a", "SSH": "b", "DNS": "c" }
+    },
+    {
+      "id": "mcq_34",
+      "type": "mcq",
+      "prompt": "Choose ONE option.\nQuestion: Which of these best describes a Moore machine?\nA) Output depends only on the current state\nB) Output depends on current state and input\nC) No states, only combinational logic\nD) Output depends only on input\nReturn JSON with answer as the LETTER.",
+      "expected": "A"
+    },
+    {
+      "id": "tf_17",
+      "type": "true_false",
+      "prompt": "True or False.\nQuestion: In a ring oscillator, the number of inverting stages must be odd to oscillate.\nReturn JSON with answer exactly 'True' or 'False'.",
+      "expected": "True"
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moodle Solver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <div class="shell">
+    <aside class="rail">
+      <div class="brand">
+        <div class="brand-mark">MS</div>
+        <div>
+          <div class="brand-name">Moodle Solver</div>
+          <div class="brand-sub">Control Panel</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+        <button class="nav-btn" data-view="solve">Solve</button>
+        <button class="nav-btn" data-view="services">Services</button>
+        <button class="nav-btn" data-view="settings">Settings</button>
+        <button class="nav-btn" data-view="history">History</button>
+        <button class="nav-btn" data-view="logs">Logs</button>
+      </nav>
+
+      <div class="rail-foot">
+        <div class="pill" id="busyPill">Idle</div>
+        <div class="muted tiny" id="configPath">config.yaml</div>
+      </div>
+    </aside>
+
+    <main class="stage">
+      <header class="topbar">
+        <div>
+          <h1 id="viewTitle">Dashboard</h1>
+          <p class="lede" id="viewLede">Overview of services and quick actions.</p>
+        </div>
+        <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section class="view active" id="view-dashboard">
+        <div class="stat-grid">
+          <article class="stat">
+            <span class="stat-label">Watch</span>
+            <strong id="statWatch">—</strong>
+          </article>
+          <article class="stat">
+            <span class="stat-label">Remote bots</span>
+            <strong id="statBots">—</strong>
+          </article>
+          <article class="stat">
+            <span class="stat-label">Chat bot</span>
+            <strong id="statChat">—</strong>
+          </article>
+          <article class="stat">
+            <span class="stat-label">Agents on</span>
+            <strong id="statAgents">—</strong>
+          </article>
+        </div>
+
+        <div class="split">
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Quick solve</h2>
+            </div>
+            <form id="quickSolveForm" class="stack">
+              <label>
+                Quiz URL or view.php?id
+                <input type="text" id="quickView" placeholder="589608 or full Moodle URL" autocomplete="off" />
+              </label>
+              <button class="btn primary" type="submit">Start solve</button>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Live output</h2>
+              <div class="seg" id="dashLogSource">
+                <button type="button" data-source="watch" class="on">Watch</button>
+                <button type="button" data-source="solve">Solve</button>
+                <button type="button" data-source="bots">Bots</button>
+              </div>
+            </div>
+            <pre class="console" id="dashConsole">Waiting for output…</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLVE -->
+      <section class="view" id="view-solve">
+        <div class="panel">
+          <div class="panel-head"><h2>One-off quiz solve</h2></div>
+          <form id="solveForm" class="stack">
+            <label>
+              Quiz URL or ID
+              <input type="text" id="solveView" placeholder="https://moodle…/mod/quiz/view.php?id=123" />
+            </label>
+            <div class="row-actions">
+              <button class="btn primary" type="submit">Run solve</button>
+              <span class="muted" id="solveHint">Uses currently enabled agents from Settings.</span>
+            </div>
+          </form>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Solve log stream</h2></div>
+          <pre class="console tall" id="solveConsole">No solve running.</pre>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="view" id="view-services">
+        <div class="card-grid">
+          <article class="panel service">
+            <h2>Watch attempts</h2>
+            <p class="muted">Poll Moodle for unfinished attempts and auto-solve.</p>
+            <div class="status-line" id="svcWatch">Stopped</div>
+            <div class="row-actions">
+              <button class="btn primary" id="watchStart" type="button">Start</button>
+              <button class="btn danger" id="watchStop" type="button">Stop</button>
+            </div>
+          </article>
+
+          <article class="panel service">
+            <h2>Remote bots</h2>
+            <p class="muted">Telegram + Discord command listeners.</p>
+            <div class="status-line" id="svcBots">Stopped</div>
+            <div class="row-actions">
+              <button class="btn primary" id="botsStart" type="button">Start</button>
+              <button class="btn danger" id="botsStop" type="button">Stop</button>
+            </div>
+          </article>
+
+          <article class="panel service">
+            <h2>Moodle chat bot</h2>
+            <p class="muted">Background chat replies using the configured model.</p>
+            <div class="status-line" id="svcChat">Stopped</div>
+            <div class="row-actions">
+              <button class="btn primary" id="chatStart" type="button">Start</button>
+              <button class="btn danger" id="chatStop" type="button">Stop</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view" id="view-settings">
+        <form id="settingsForm" class="settings-layout">
+          <div class="panel">
+            <div class="panel-head"><h2>Moodle</h2></div>
+            <div class="stack">
+              <label>URL <input id="moodle_url" type="url" /></label>
+              <label>Username <input id="moodle_user" type="text" /></label>
+              <label>Password <input id="moodle_pass" type="password" placeholder="••••••••" /></label>
+              <label>Mode
+                <select id="moodle_mode">
+                  <option value="auto">auto</option>
+                  <option value="api">api</option>
+                  <option value="scraper">scraper</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>API keys</h2></div>
+            <div class="stack keys">
+              <label>Groq <input id="key_groq" type="password" autocomplete="off" /></label>
+              <label>Cerebras <input id="key_cerebras" type="password" autocomplete="off" /></label>
+              <label>Google Gemini <input id="key_google" type="password" autocomplete="off" /></label>
+              <label>DeepSeek <input id="key_deepseek" type="password" autocomplete="off" /></label>
+              <label>OpenRouter <input id="key_openrouter" type="password" autocomplete="off" /></label>
+              <label>GitHub PAT <input id="key_github" type="password" autocomplete="off" /></label>
+            </div>
+            <p class="muted tiny">Leave blank to keep the existing key.</p>
+          </div>
+
+          <div class="panel span-2">
+            <div class="panel-head"><h2>Built-in &amp; legacy agents</h2></div>
+            <div class="toggle-grid" id="agentToggles"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h2>DeepSeek models</h2>
+              <button type="button" class="btn ghost tiny-btn" id="addDeepseek">Add</button>
+            </div>
+            <div class="model-list" id="deepseekList"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h2>OpenRouter models</h2>
+              <button type="button" class="btn ghost tiny-btn" id="addOpenrouter">Add</button>
+            </div>
+            <div class="model-list" id="openrouterList"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Agent runtime</h2></div>
+            <div class="stack dual">
+              <label>Calls per agent <input id="calls_per_agent" type="number" min="1" step="1" /></label>
+              <label>Timeout (s) <input id="timeout_seconds" type="number" min="5" step="1" /></label>
+              <label>Temperature low <input id="temperature_low" type="number" min="0" max="2" step="0.1" /></label>
+              <label>Temperature high <input id="temperature_high" type="number" min="0" max="2" step="0.1" /></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Solver</h2></div>
+            <div class="stack dual">
+              <label class="check"><input type="checkbox" id="auto_finish" /> Auto-finish attempt</label>
+              <label class="check"><input type="checkbox" id="save_log" /> Save quiz log</label>
+              <label class="check"><input type="checkbox" id="show_reasoning" /> Show reasoning</label>
+              <label>Question delay (s) <input id="question_delay" type="number" min="0" step="1" /></label>
+              <label>Defer retries <input id="defer_retries" type="number" min="0" step="1" /></label>
+              <label>Log file <input id="log_file" type="text" /></label>
+              <label>Logs directory <input id="logs_dir" type="text" /></label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Monitor</h2></div>
+            <div class="stack dual">
+              <label>Poll seconds <input id="poll_seconds" type="number" min="5" step="1" /></label>
+              <label>Poll jitter (s) <input id="poll_jitter" type="number" min="0" step="1" /></label>
+              <label>State file <input id="state_file" type="text" /></label>
+              <label class="span-row">Exclude quiz IDs
+                <textarea id="exclude_quiz_ids" rows="3" placeholder="36134, 40507"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h2>Remote bots</h2></div>
+            <div class="stack dual">
+              <label>Telegram bot token <input id="tg_token" type="password" /></label>
+              <label>Discord bot token <input id="dc_token" type="password" /></label>
+              <label>Runs directory <input id="runs_dir" type="text" /></label>
+              <label class="span-row">Allowed Telegram user IDs
+                <textarea id="tg_users" rows="2" placeholder="123, 456"></textarea>
+              </label>
+              <label class="span-row">Allowed Discord user IDs
+                <textarea id="dc_users" rows="2" placeholder="123, 456"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="panel span-2">
+            <div class="panel-head"><h2>Chat bot</h2></div>
+            <div class="stack dual">
+              <label>Model <input id="chat_model" type="text" placeholder="deepseek-chat or groq_qwen3_32b" /></label>
+              <label>Conversation id <input id="chat_conv" type="number" /></label>
+              <label>Poll seconds <input id="chat_poll" type="number" min="1" step="1" /></label>
+              <label class="check"><input type="checkbox" id="chat_debug" /> Debug logging</label>
+              <label class="check"><input type="checkbox" id="chat_auto" /> Auto-start with remote-bots</label>
+              <label class="span-row">Reply rules
+                <textarea id="chat_rules" rows="3" placeholder="Optional extra rules for answers"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button class="btn primary" type="submit">Save settings</button>
+            <span class="muted" id="saveMsg"></span>
+          </div>
+        </form>
+      </section>
+
+      <!-- HISTORY -->
+      <section class="view" id="view-history">
+        <div class="split">
+          <div class="panel">
+            <div class="panel-head"><h2>Attempts</h2></div>
+            <div class="list" id="historyList"><div class="muted">No attempts yet.</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Details</h2></div>
+            <pre class="console tall" id="historyDetail">Select an attempt.</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGS -->
+      <section class="view" id="view-logs">
+        <div class="split">
+          <div class="panel">
+            <div class="panel-head"><h2>Run logs</h2></div>
+            <div class="list" id="logsList"><div class="muted">No logs yet.</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2 id="logTitle">Output</h2>
+              <button class="btn ghost tiny-btn" id="followLog" type="button">Follow live</button>
+            </div>
+            <pre class="console tall" id="logsConsole">Select a log file.</pre>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

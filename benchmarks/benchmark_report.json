@@ -1,0 +1,588 @@
+{
+  "dataset": "benchmarks\\dataset_v1.json",
+  "temperature": 0.2,
+  "timeout_s": 15.0,
+  "results": [
+    {
+      "agent": "GroqLlama33",
+      "model": "llama-3.3-70b-versatile",
+      "total": 20,
+      "ok": 20,
+      "correct": 19,
+      "accuracy": 0.95,
+      "reliability": 1.0,
+      "avg_latency_s": 0.312,
+      "score": 0.955
+    },
+    {
+      "agent": "CerebraQwen3",
+      "model": "qwen-3-235b-a22b-instruct-2507",
+      "total": 20,
+      "ok": 20,
+      "correct": 19,
+      "accuracy": 0.95,
+      "reliability": 1.0,
+      "avg_latency_s": 1.0,
+      "score": 0.932
+    },
+    {
+      "agent": "GroqQwen3",
+      "model": "qwen/qwen3-32b",
+      "total": 20,
+      "ok": 19,
+      "correct": 18,
+      "accuracy": 0.9,
+      "reliability": 0.95,
+      "avg_latency_s": 1.291,
+      "score": 0.872
+    }
+  ],
+  "details": {
+    "GroqLlama33::llama-3.3-70b-versatile": [
+      {
+        "id": "mcq_01",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.504,
+        "correct": true
+      },
+      {
+        "id": "tf_01",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.181,
+        "correct": true
+      },
+      {
+        "id": "short_01",
+        "type": "short",
+        "expected": "Cyclic Redundancy Check",
+        "got": "Cyclic Redundancy Check",
+        "error": null,
+        "latency_s": 0.143,
+        "correct": true
+      },
+      {
+        "id": "mcq_02",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.194,
+        "correct": true
+      },
+      {
+        "id": "mcq_03",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 0.172,
+        "correct": true
+      },
+      {
+        "id": "tf_02",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.265,
+        "correct": true
+      },
+      {
+        "id": "mcq_04",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 0.406,
+        "correct": true
+      },
+      {
+        "id": "short_02",
+        "type": "short",
+        "expected": "0",
+        "got": 0,
+        "error": null,
+        "latency_s": 0.251,
+        "correct": true
+      },
+      {
+        "id": "mcq_05",
+        "type": "mcq",
+        "expected": "A",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.198,
+        "correct": false
+      },
+      {
+        "id": "tf_03",
+        "type": "true_false",
+        "expected": "False",
+        "got": "False",
+        "error": null,
+        "latency_s": 0.607,
+        "correct": true
+      },
+      {
+        "id": "mcq_06",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.303,
+        "correct": true
+      },
+      {
+        "id": "short_03",
+        "type": "short",
+        "expected": "hash function",
+        "got": "Hash Function",
+        "error": null,
+        "latency_s": 0.407,
+        "correct": true
+      },
+      {
+        "id": "mcq_07",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.191,
+        "correct": true
+      },
+      {
+        "id": "tf_04",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.273,
+        "correct": true
+      },
+      {
+        "id": "mcq_08",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.181,
+        "correct": true
+      },
+      {
+        "id": "short_04",
+        "type": "short",
+        "expected": "128",
+        "got": 128,
+        "error": null,
+        "latency_s": 0.356,
+        "correct": true
+      },
+      {
+        "id": "mcq_09",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.295,
+        "correct": true
+      },
+      {
+        "id": "tf_05",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.959,
+        "correct": true
+      },
+      {
+        "id": "mcq_10",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.216,
+        "correct": true
+      },
+      {
+        "id": "short_05",
+        "type": "short",
+        "expected": "Pulse Width Modulation",
+        "got": "Pulse Width Modulation",
+        "error": null,
+        "latency_s": 0.142,
+        "correct": true
+      }
+    ],
+    "GroqQwen3::qwen/qwen3-32b": [
+      {
+        "id": "mcq_01",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 1.021,
+        "correct": true
+      },
+      {
+        "id": "tf_01",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.609,
+        "correct": true
+      },
+      {
+        "id": "short_01",
+        "type": "short",
+        "expected": "Cyclic Redundancy Check",
+        "got": "Cyclic Redundancy Check",
+        "error": null,
+        "latency_s": 0.427,
+        "correct": true
+      },
+      {
+        "id": "mcq_02",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.428,
+        "correct": true
+      },
+      {
+        "id": "mcq_03",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 0.501,
+        "correct": true
+      },
+      {
+        "id": "tf_02",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 1.1,
+        "correct": true
+      },
+      {
+        "id": "mcq_04",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 0.545,
+        "correct": true
+      },
+      {
+        "id": "short_02",
+        "type": "short",
+        "expected": "0",
+        "got": 0,
+        "error": null,
+        "latency_s": 0.457,
+        "correct": true
+      },
+      {
+        "id": "mcq_05",
+        "type": "mcq",
+        "expected": "A",
+        "got": "B",
+        "error": null,
+        "latency_s": 2.58,
+        "correct": false
+      },
+      {
+        "id": "tf_03",
+        "type": "true_false",
+        "expected": "False",
+        "got": "False",
+        "error": null,
+        "latency_s": 0.699,
+        "correct": true
+      },
+      {
+        "id": "mcq_06",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.569,
+        "correct": true
+      },
+      {
+        "id": "short_03",
+        "type": "short",
+        "expected": "hash function",
+        "got": "",
+        "error": "Could not parse JSON from response: <think>\nOkay, the user is asking for the name of the algorithm that maps variable-length input to a fixed-length output used in SHA-256. Let me break this down.\n\nFirst, SHA-256 is part of the SHA-2 fa",
+        "latency_s": 2.149,
+        "correct": false
+      },
+      {
+        "id": "mcq_07",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 1.189,
+        "correct": true
+      },
+      {
+        "id": "tf_04",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.628,
+        "correct": true
+      },
+      {
+        "id": "mcq_08",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 1.393,
+        "correct": true
+      },
+      {
+        "id": "short_04",
+        "type": "short",
+        "expected": "128",
+        "got": 128,
+        "error": null,
+        "latency_s": 0.619,
+        "correct": true
+      },
+      {
+        "id": "mcq_09",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.817,
+        "correct": true
+      },
+      {
+        "id": "tf_05",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 4.913,
+        "correct": true
+      },
+      {
+        "id": "mcq_10",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 1.649,
+        "correct": true
+      },
+      {
+        "id": "short_05",
+        "type": "short",
+        "expected": "Pulse Width Modulation",
+        "got": "Pulse Width Modulation",
+        "error": null,
+        "latency_s": 3.537,
+        "correct": true
+      }
+    ],
+    "CerebraQwen3::qwen-3-235b-a22b-instruct-2507": [
+      {
+        "id": "mcq_01",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 2.862,
+        "correct": true
+      },
+      {
+        "id": "tf_01",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.287,
+        "correct": true
+      },
+      {
+        "id": "short_01",
+        "type": "short",
+        "expected": "Cyclic Redundancy Check",
+        "got": "Cyclic Redundancy Check",
+        "error": null,
+        "latency_s": 0.526,
+        "correct": true
+      },
+      {
+        "id": "mcq_02",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.557,
+        "correct": true
+      },
+      {
+        "id": "mcq_03",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 10.554,
+        "correct": true
+      },
+      {
+        "id": "tf_02",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.314,
+        "correct": true
+      },
+      {
+        "id": "mcq_04",
+        "type": "mcq",
+        "expected": "C",
+        "got": "C",
+        "error": null,
+        "latency_s": 0.354,
+        "correct": true
+      },
+      {
+        "id": "short_02",
+        "type": "short",
+        "expected": "0",
+        "got": "0",
+        "error": null,
+        "latency_s": 0.275,
+        "correct": true
+      },
+      {
+        "id": "mcq_05",
+        "type": "mcq",
+        "expected": "A",
+        "got": "A",
+        "error": null,
+        "latency_s": 0.475,
+        "correct": true
+      },
+      {
+        "id": "tf_03",
+        "type": "true_false",
+        "expected": "False",
+        "got": "False",
+        "error": null,
+        "latency_s": 0.375,
+        "correct": true
+      },
+      {
+        "id": "mcq_06",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.293,
+        "correct": true
+      },
+      {
+        "id": "short_03",
+        "type": "short",
+        "expected": "hash function",
+        "got": "Merkle Damgård",
+        "error": null,
+        "latency_s": 0.325,
+        "correct": false
+      },
+      {
+        "id": "mcq_07",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.338,
+        "correct": true
+      },
+      {
+        "id": "tf_04",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.342,
+        "correct": true
+      },
+      {
+        "id": "mcq_08",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.541,
+        "correct": true
+      },
+      {
+        "id": "short_04",
+        "type": "short",
+        "expected": "128",
+        "got": 128,
+        "error": null,
+        "latency_s": 0.289,
+        "correct": true
+      },
+      {
+        "id": "mcq_09",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.28,
+        "correct": true
+      },
+      {
+        "id": "tf_05",
+        "type": "true_false",
+        "expected": "True",
+        "got": "True",
+        "error": null,
+        "latency_s": 0.349,
+        "correct": true
+      },
+      {
+        "id": "mcq_10",
+        "type": "mcq",
+        "expected": "B",
+        "got": "B",
+        "error": null,
+        "latency_s": 0.338,
+        "correct": true
+      },
+      {
+        "id": "short_05",
+        "type": "short",
+        "expected": "Pulse Width Modulation",
+        "got": "Pulse Width Modulation",
+        "error": null,
+        "latency_s": 0.321,
+        "correct": true
+      }
+    ]
+  }
+}
